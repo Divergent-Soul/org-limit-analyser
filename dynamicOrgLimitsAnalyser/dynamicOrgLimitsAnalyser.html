@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-card" style="padding: 1%;">
+        <div style="text-align: center; font-weight: bold; font-size: 16pt; margin-bottom: 2%">
+            Dynamic Org Limits Analyser
+        </div>
+        <div>
+            <template for:each={limitsData} for:item="items">
+                <div key={items.name} class={items.name}>
+                    <div class="slds-grid slds-gutters slds-wrap">
+                        <div class="slds-col slds-size_1-of-3" style="text-align: right;">
+                            <b>{items.name}</b>
+                        </div>
+                        <div class="slds-col" style="margin-top: 4px;">
+                            <div class="slds-progress-bar slds-progress-bar_circular slds-progress-bar_large" aria-valuemin="0" aria-valuemax="100" aria-valuenow={items.usedLimit} aria-label="Placeholder" role="progressbar">
+                                <span class="slds-progress-bar__value slds-progress-bar_circular" title={items.usedLimit}>
+                                    <span class="slds-assistive-text"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-7">
+                            Used {items.usedLimit}% of {items.maxLimit}
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>
